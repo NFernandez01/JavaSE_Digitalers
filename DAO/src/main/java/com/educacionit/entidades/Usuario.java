@@ -1,4 +1,9 @@
 package com.educacionit.entidades;
+/**
+ * 
+ * @author Nahuel
+ * 
+ */
 
 public class Usuario {
 	private String correo;
@@ -17,9 +22,15 @@ public class Usuario {
 		this.activo = activo;
 	}
 	
+	
 	public String getCorreo() {
 		return correo;
 	}
+	
+	/**
+	 * este es el seteo del correo del usuario
+	 * @param correo
+	 */
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}

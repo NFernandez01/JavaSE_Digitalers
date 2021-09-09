@@ -29,6 +29,7 @@ public class ValidarUsuario extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		Usuario usuario = new Usuario();
+		
 	}
 
 	/**
