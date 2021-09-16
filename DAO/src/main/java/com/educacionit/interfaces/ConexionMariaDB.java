@@ -18,7 +18,8 @@ public interface ConexionMariaDB {
 			String url = propiedades.getProperty("db.url");
 			String user = propiedades.getProperty("db.user");
 			String pass = propiedades.getProperty("db.pass","1234");
-			
+			Class.forName(propiedades.getProperty("db.driver"));
+			 
 			
 			conexion = DriverManager.getConnection(url,user,pass);
 		} catch (SQLException e) {
@@ -26,6 +27,8 @@ public interface ConexionMariaDB {
 		}catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		return conexion;

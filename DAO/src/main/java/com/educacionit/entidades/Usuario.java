@@ -1,4 +1,8 @@
 package com.educacionit.entidades;
+
+import com.educacionit.exepciones.ExecpcionPatrones;
+import com.educacionit.interfaces.Patrones;
+
 /**
  * 
  * @author Nahuel
@@ -15,10 +19,10 @@ public class Usuario {
 		
 		
 	}
-	public Usuario(String correo, String clave, boolean activo) {
+	public Usuario(String correo, String clave, boolean activo) throws ExecpcionPatrones {
 		super();
-		this.correo = correo;
-		this.clave = clave;
+		setCorreo(correo);
+		setClave(clave);
 		this.activo = activo;
 	}
 	
@@ -30,16 +34,26 @@ public class Usuario {
 	/**
 	 * este es el seteo del correo del usuario
 	 * @param correo
+	 * @throws ExecpcionPatrones 
 	 */
-	public void setCorreo(String correo) {
+	public void setCorreo(String correo) throws ExecpcionPatrones {
+		if(!Patrones.esCorreo(correo)) {
+			throw new ExecpcionPatrones(1);
+		}
 		this.correo = correo;
 	}
+	
 	public String getClave() {
 		return clave;
 	}
-	public void setClave(String clave) {
+	
+	public void setClave(String clave) throws ExecpcionPatrones {
+		if(!Patrones.esClave(clave)) {
+			throw new ExecpcionPatrones(2);
+		}
 		this.clave = clave;
 	}
+	
 	public boolean isActivo() {
 		return activo;
 	}
